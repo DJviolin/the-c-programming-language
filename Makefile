@@ -1,4 +1,4 @@
-# cd /c/www/clang/the-c-programming-language && make clean all assembly && time ./bin/1.1-hello
+# cd /c/www/clang/the-c-programming-language && make clean build assembly && time ./bin/1.1-hello
 
 CC := clang -std=c11
 CFLAGS := -Wall -g
@@ -6,39 +6,21 @@ ASSEMBLY := -S -masm=intel
 # Optimization flags: http://stackoverflow.com/a/15548189/1442219
 OPTIMIZE := -Ofast
 
-#FOLDER_SRC := ./src/
-#FOLDER_BIN := ./bin/
-#FOLDER_ASSEMBLY := ./ass/
-#FILENAME_SRC := $(wildcard $(FOLDER_SRC)*.c)
-#FILENAME_BUILD := $(patsubst $(FOLDER_SRC)%.c,%,$(FILENAME_SRC))
+#TARGETS := bin/1.1-hello bin/1.2-fahrenheit bin/1.2-fahrenheit-floating
+SRC := $(wildcard src/*.c)
+BIN := $(patsubst src/%.c,bin/%,$(SRC))
+ASS := $(patsubst src/%.c,ass/%,$(SRC))
 
-#echo : $(FILENAME_SRC)
-#	@echo $^
-#	@echo $(FILENAME_BUILD)
+clean:
+	rm -f bin/* ass/*
 
-TARGETS := bin/1.1-hello bin/1.2-fahrenheit bin/1.2-fahrenheit-floating
-#TARGETS := $(wildcard bin/*)
-
-.PHONY: build
-build: $(TARGETS)
-$(TARGETS): bin/%: src/%.c
+build: $(BIN)
+$(BIN): bin/%: src/%.c
 	$(CC) $(CFLAGS) $(OPTIMIZE) $^ -o $@
 
-#echo:
-#	@echo $(TARGETS)
-
-#.PHONY: echo
-#echo: $(TARGETS)
-#$(TARGETS): bin/%: src/%.c
-#	@echo $^ -o $@
-
-#.PHONY: clean
-#clean: $(TARGETS)
-#$(TARGETS): bin/%
-#	rm -f $@
-
-#build : $(FILENAME_SRC)
-#	$(CC) $(CFLAGS) $(OPTIMIZE) $^ -o $(FILENAME_BUILD)
+assembly: $(ASS)
+$(ASS): ass/%: src/%.c
+	$(CC) $(ASSEMBLY) $(OPTIMIZE) $^ -o $@
 
 #clean:
 #	rm -f \
@@ -46,7 +28,7 @@ $(TARGETS): bin/%: src/%.c
 #	$(FOLDER_BIN)1.2-fahrenheit $(FOLDER_ASSEMBLY)1.2-fahrenheit \
 #	$(FOLDER_BIN)1.2-fahrenheit-floating $(FOLDER_ASSEMBLY)1.2-fahrenheit-floating
 
-#all:
+#build:
 #	$(CC) $(CFLAGS) $(OPTIMIZE) $(FOLDER_SRC)1.1-hello.c -o $(FOLDER_BIN)1.1-hello
 #	$(CC) $(CFLAGS) $(OPTIMIZE) $(FOLDER_SRC)1.2-fahrenheit.c -o $(FOLDER_BIN)1.2-fahrenheit
 #	$(CC) $(CFLAGS) $(OPTIMIZE) $(FOLDER_SRC)1.2-fahrenheit-floating.c -o $(FOLDER_BIN)1.2-fahrenheit-floating
