@@ -10,10 +10,12 @@ OPTIMIZE=-Ofast
 FOLDER_SRC=./src/
 FOLDER_BIN=./bin/
 FOLDER_ASSEMBLY=./ass/
-FILENAME_SRC := $(patsubst $(FOLDER_SRC)%.c,%,$(wildcard $(FOLDER_SRC)*.c))
+FILENAME_SRC := $(wildcard $(FOLDER_SRC)*.c)
+FILENAME_BUILD := $(patsubst $(FOLDER_SRC)%.c,%,$(FILENAME_SRC))
 
 echo : $(FILENAME_SRC)
 	@echo $(FILENAME_SRC)
+	@echo $(FILENAME_BUILD)
 
 build : $(FILENAME_SRC)
 	$(CC) $(CFLAGS) $(OPTIMIZE) $(FOLDER_SRC)$(FILENAME_SRC).c -o $(FOLDER_BIN)$(FILENAME_SRC)
