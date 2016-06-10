@@ -1,4 +1,4 @@
-# cd /c/www/clang/the-c-programming-language && make clean all assembly && cd bin && time ./1.1-hello
+# cd /c/www/clang/the-c-programming-language && make clean all assembly && time ./bin/1.1-hello
 
 # CC: cc, gcc, clang
 CC=clang -std=c11
