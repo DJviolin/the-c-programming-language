@@ -17,10 +17,25 @@
 #	@echo $^
 #	@echo $(FILENAME_BUILD)
 
-CC := clang
-CFLAGS := -std=c11 -Wall -g -Ofast
+CC := clang -std=c11
+CFLAGS := -Wall -g
+ASSEMBLY := -S -masm=intel
 
-targets := bin/1.1-hello bin/1.2-farenheit bin/1.2-farenheit-floating
+TARGETS := bin/1.1-hello bin/1.2-fahrenheit bin/1.2-fahrenheit-floating
+#TARGETS := $(wildcard ./src/*.c)
+
+#echo:
+#	@echo $(TARGETS)
+
+.PHONY: echo
+echo: $(TARGETS)
+$(TARGETS): bin/%: src/%.c
+	@echo $^ -o $@
+
+.PHONY: clean
+clean: $(targets)
+$(targets): bin/%
+	rm -f $@
 
 .PHONY: all
 all: $(targets)
