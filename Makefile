@@ -12,11 +12,11 @@ FOLDER_BIN=./bin/
 FOLDER_ASSEMBLY=./ass/
 FILENAME_SRC := $(patsubst $(FOLDER_SRC)%.c,%,$(wildcard $(FOLDER_SRC)*.c))
 
-echo:
+echo : $(FILENAME_SRC)
 	@echo $(FILENAME_SRC)
 
 build : $(FILENAME_SRC)
-	$(CC) $(CFLAGS) $(OPTIMIZE) $(FOLDER_SRC)$(FILENAME_SRC) -o $(FOLDER_BIN)$(FILENAME_SRC)
+	$(CC) $(CFLAGS) $(OPTIMIZE) $(FOLDER_SRC)$(FILENAME_SRC).c -o $(FOLDER_BIN)$(FILENAME_SRC)
 
 clean:
 	rm -f \
