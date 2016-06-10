@@ -29,21 +29,20 @@ TARGETS := bin/1.1-hello bin/1.2-fahrenheit bin/1.2-fahrenheit-floating
 #echo:
 #	@echo $(TARGETS)
 
-.PHONY: echo
-echo: $(TARGETS)
-$(TARGETS): bin/%: src/%.c
-	@echo $^ -o $@
+#.PHONY: echo
+#echo: $(TARGETS)
+#$(TARGETS): bin/%: src/%.c
+#	@echo $^ -o $@
 
-.PHONY: clean
-clean: $(TARGETS)
-$(TARGETS): bin/%
-	rm -f $@
+#.PHONY: clean
+#clean: $(TARGETS)
+#$(TARGETS): bin/%
+#	rm -f $@
 
 .PHONY: all
 all: $(TARGETS)
 $(TARGETS): bin/%: src/%.c
 	$(CC) $(CFLAGS) $(OPTIMIZE) $^ -o $@
-	#$(LINK.c) $^ $(LDLIBS) -o $@
 
 #build : $(FILENAME_SRC)
 #	$(CC) $(CFLAGS) $(OPTIMIZE) $^ -o $(FILENAME_BUILD)
