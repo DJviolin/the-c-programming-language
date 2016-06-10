@@ -20,9 +20,11 @@
 CC := clang -std=c11
 CFLAGS := -Wall -g
 ASSEMBLY := -S -masm=intel
+# Optimization flags: http://stackoverflow.com/a/15548189/1442219
+OPTIMIZE := -Ofast
 
 TARGETS := bin/1.1-hello bin/1.2-fahrenheit bin/1.2-fahrenheit-floating
-#TARGETS := $(wildcard ./src/*.c)
+#TARGETS := $(wildcard bin/*)
 
 #echo:
 #	@echo $(TARGETS)
@@ -33,14 +35,15 @@ $(TARGETS): bin/%: src/%.c
 	@echo $^ -o $@
 
 .PHONY: clean
-clean: $(targets)
-$(targets): bin/%
+clean: $(TARGETS)
+$(TARGETS): bin/%
 	rm -f $@
 
 .PHONY: all
-all: $(targets)
-$(targets): bin/%: src/%.c
-	$(LINK.c) $^ $(LDLIBS) -o $@
+all: $(TARGETS)
+$(TARGETS): bin/%: src/%.c
+	$(CC) $(CFLAGS) $(OPTIMIZE) $^ -o $@
+	#$(LINK.c) $^ $(LDLIBS) -o $@
 
 #build : $(FILENAME_SRC)
 #	$(CC) $(CFLAGS) $(OPTIMIZE) $^ -o $(FILENAME_BUILD)
