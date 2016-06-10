@@ -1,10 +1,11 @@
 # cd /c/www/clang/the-c-programming-language && make clean build assembly && time ./bin/1.1-hello
 
 CC := clang -std=c11
+GCC := gcc -std=c11
 CFLAGS := -Wall -g
 ASSEMBLY := -Wall -S -masm=intel
-# Optimization flags: http://stackoverflow.com/a/15548189/1442219
-OPTIMIZE := -Ofast
+# Optimization flags: http://stackoverflow.com/a/15548189/1442219 | https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+OPTIMIZE := -O3
 
 SRC := $(wildcard src/*.c)
 BIN := $(patsubst src/%.c,bin/%,$(SRC))
