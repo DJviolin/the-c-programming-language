@@ -2,7 +2,7 @@
 
 CC := clang -std=c11
 CFLAGS := -Wall -g
-ASSEMBLY := -S -masm=intel
+ASSEMBLY := -Wall -S -masm=intel
 # Optimization flags: http://stackoverflow.com/a/15548189/1442219
 OPTIMIZE := -Ofast
 
