@@ -1,4 +1,4 @@
-# CC = cc, gcc, clang-3.7 -std=c11
+# CC = cc, gcc, clang
 # cd /c/www/clang/the-c-programming-language && make clean all assembly && cd bin && time ./1.1-hello
 CC=clang -std=c11
 CFLAGS=-Wall -g
