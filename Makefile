@@ -11,6 +11,13 @@ FOLDER_SRC=./src/
 FOLDER_BIN=./bin/
 FOLDER_ASSEMBLY=./ass/
 
+FILENAME_SRC = $(wildcard $(FOLDER_SRC)*.c)
+FILENAME_BIN = $(patsubst $(FOLDER_SRC)%.c,%,$(wildcard $(FOLDER_SRC)*.c))
+
+echo:
+	@echo $(FILENAME_SRC)
+	@echo $(FILENAME_BIN)
+
 clean:
 	rm -f \
 	$(FOLDER_BIN)1.1-hello $(FOLDER_ASSEMBLY)1.1-hello \
