@@ -7,7 +7,8 @@ ASSEMBLY := -Wall -S -masm=intel
 # Optimization flags: http://stackoverflow.com/a/15548189/1442219 | https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
 # http://www.phoronix.com/scan.php?page=article&item=clang-gcc-opts&num=2 | http://openbenchmarking.org/result/1602297-GA-SKYLAKEXE76
 #OPTIMIZE := -O3
-OPTIMIZE := -Ofast -march=native
+#OPTIMIZE := -Ofast -march=native
+OPTIMIZE := -O3 -march=native
 
 SRC := $(wildcard src/*.c)
 BIN := $(patsubst src/%.c,bin/%,$(SRC))
