@@ -12,4 +12,6 @@ int main() {
     float calc = (5.0 / 9.0) * (fahr - 32);
     printf("%3d %6.1f\n", fahr, calc);
   }
+
+  return 0;
 }
