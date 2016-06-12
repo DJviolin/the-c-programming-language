@@ -22,7 +22,7 @@ int main() {
   while (fahr <= upper) {
     // integer division truncates, any fractional part is discarded
     celsius = 5 * (fahr - 32) / 9;
-    // printf("%d\t%d\n", fahr, celsius);  // %d specifies an integer argument,
+    // printf("%d\t%d\n", fahr, celsius); // %d specifies an integer argument,
     // they must match up properly by number and type,
     // or you will get wrong answers
     printf("%3d\t%6d\n", fahr, celsius);  // numbers justified right
