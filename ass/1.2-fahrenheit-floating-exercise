@@ -79,7 +79,7 @@ main:                                   # @main
 
 	.section	.rdata,"dr"
 L.str.1:                                # @.str.1
-	.asciz	"%3.0f %6.1f\n"
+	.asciz	"%3.0f \302\260C\t %5.1f \302\260F\n"
 
 	.align	16                      # @str
 Lstr:
