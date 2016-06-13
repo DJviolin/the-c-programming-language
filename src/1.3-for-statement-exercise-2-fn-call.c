@@ -8,8 +8,11 @@
 // int a;  // 0 -> because "linker visibility"
 // variable is accessible from other compilation units
 
+// static int a;  // variable is local to this compilation unit
+// not visible through the linker
+
 void foo(void) {
-  // Only true when debug mode is on at compiling
+  // Only true when debug mode is on at compilation
   // int fahr;    // undefined -> garbage value in theory -> in practice: 0
   // float calc;  // undefined -> garbage value in theory -> in practice: 0.0
 
