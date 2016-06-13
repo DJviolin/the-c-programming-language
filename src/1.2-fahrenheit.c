@@ -2,7 +2,7 @@
 
 // print Fahrenheit-Celsius table
 // for fahr = 0, 20, ..., 300
-int main() {
+int main(void) {
   // in C, all variables must be declared before they are used,
   // usually at the beginning of the function
   int fahr, celsius;

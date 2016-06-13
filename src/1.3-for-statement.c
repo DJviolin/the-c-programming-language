@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-int main() {
+int main(void) {
   int fahr;
 
   for (fahr = 0; fahr <= 300; fahr = fahr + 20) {
