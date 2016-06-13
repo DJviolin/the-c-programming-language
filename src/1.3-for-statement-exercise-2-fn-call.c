@@ -6,8 +6,10 @@
 #include <stdio.h>
 
 void foo(void) {
-  // int fahr;    // undefined
-  // float calc;  // undefined
+  // Only true when debug mode is on at compiling
+  // int fahr;    // undefined -> garbage value in theory -> in practice: 0
+  // float calc;  // undefined -> garbage value in theory -> in practice: 0.0
+
   static int fahr;    // 0
   static float calc;  // 0.0
 
