@@ -3,6 +3,7 @@
 
 int main(int argc, char *argv[]) {
   (void)argc;
+  (void)argv;
 
   int arg1 = 1;
 
