@@ -6,6 +6,8 @@
 #include <stdio.h>
 
 void foo(void) {
+  // int fahr;    // undefined
+  // float calc;  // undefined
   static int fahr;    // 0
   static float calc;  // 0.0
 
