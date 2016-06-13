@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-int main() {
+int main(void) {
   printf(
       "\n/////////////////////////////////////////////////////////////\n"
       "// This program prints Celsius to Fahrenheit conversion table\n"
