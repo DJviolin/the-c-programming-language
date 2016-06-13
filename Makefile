@@ -1,7 +1,7 @@
 # cd /c/www/clang/the-c-programming-language && make clean build assembly && time ./bin/1.1-hello
 
-#CC := clang
-CC := gcc
+CC := clang
+#CC := gcc
 CFLAGS := -std=c11
 BINARY := -Wall -Wextra -Werror -g
 ASSEMBLY := -S -masm=intel

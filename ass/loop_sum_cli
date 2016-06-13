@@ -1,138 +1,58 @@
-	.file	"loop_sum_cli.c"
+	.text
 	.intel_syntax noprefix
-	.def	__main;	.scl	2;	.type	32;	.endef
-	.section .rdata,"dr"
-.LC2:
-	.ascii "sum: %ld\12\0"
-	.section	.text.unlikely,"x"
-.LCOLDB3:
-	.section	.text.startup,"x"
-.LHOTB3:
-	.p2align 4,,15
+	.def	 main;
+	.scl	2;
+	.type	32;
+	.endef
 	.globl	main
-	.def	main;	.scl	2;	.type	32;	.endef
-	.seh_proc	main
-main:
-	push	rbx
-	.seh_pushreg	rbx
-	sub	rsp, 32
-	.seh_stackalloc	32
+	.align	16, 0x90
+main:                                   # @main
+.Ltmp0:
+.seh_proc main
+# BB#0:
+	push	rbp
+.Ltmp1:
+	.seh_pushreg 5
+	push	rsi
+.Ltmp2:
+	.seh_pushreg 6
+	sub	rsp, 40
+.Ltmp3:
+	.seh_stackalloc 40
+	lea	rbp, [rsp + 32]
+.Ltmp4:
+	.seh_setframe 5, 32
+.Ltmp5:
 	.seh_endprologue
-	mov	rbx, rdx
+	mov	rsi, rdx
 	call	__main
-	mov	rcx, QWORD PTR 8[rbx]
+	mov	rcx, qword ptr [rsi + 8]
 	call	atoi
-	cdqe
-	test	rax, rax
-	jle	.L9
-	lea	r8, -2[rax]
-	lea	rdx, -1[rax]
-	shr	r8
-	add	r8, 1
-	cmp	rdx, 14
-	mov	edx, 0
-	lea	rcx, [r8+r8]
-	jbe	.L10
-	vmovdqa	xmm0, XMMWORD PTR .LC0[rip]
-	vpxor	xmm1, xmm1, xmm1
-	vmovdqa	xmm2, XMMWORD PTR .LC1[rip]
-	.p2align 4,,10
-.L4:
-	add	rdx, 1
-	vpaddq	xmm1, xmm1, xmm0
-	vpaddq	xmm0, xmm0, xmm2
-	cmp	r8, rdx
-	ja	.L4
-	vpsrldq	xmm0, xmm1, 8
-	vpaddq	xmm1, xmm1, xmm0
-	vmovq	rdx, xmm1
-	cmp	rax, rcx
-	je	.L2
-.L3:
-	lea	r8, 1[rcx]
-	add	rdx, rcx
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 2[rcx]
-	cmp	r8, rax
-	jge	.L2
-	add	rdx, r8
-	lea	r8, 3[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 4[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 5[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 6[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 7[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 8[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 9[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 10[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 11[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 12[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	lea	r8, 13[rcx]
-	cmp	rax, r8
-	jle	.L2
-	add	rdx, r8
-	add	rcx, 14
-	lea	r8, [rdx+rcx]
-	cmp	rax, rcx
-	cmovg	rdx, r8
-.L2:
-	lea	rcx, .LC2[rip]
+	xor	edx, edx
+	test	eax, eax
+	jle	.LBB0_2
+# BB#1:                                 # %.lr.ph.preheader
+	lea	ecx, [rax - 1]
+	mov	edx, eax
+	add	edx, -2
+	imul	rdx, rcx
+	shr	rdx
+	lea	edx, [rax + rdx - 1]
+.LBB0_2:                                # %._crit_edge
+	lea	rcx, [rip + L.str]
 	call	printf
 	xor	eax, eax
-	add	rsp, 32
-	pop	rbx
+	add	rsp, 40
+	pop	rsi
+	pop	rbp
 	ret
-.L10:
-	xor	ecx, ecx
-	jmp	.L3
-.L9:
-	xor	edx, edx
-	jmp	.L2
+	.seh_handlerdata
+	.text
+.Ltmp6:
 	.seh_endproc
-	.section	.text.unlikely,"x"
-.LCOLDE3:
-	.section	.text.startup,"x"
-.LHOTE3:
-	.section .rdata,"dr"
-	.align 16
-.LC0:
-	.quad	0
-	.quad	1
-	.align 16
-.LC1:
-	.quad	2
-	.quad	2
-	.ident	"GCC: (GNU) 5.3.0"
-	.def	atoi;	.scl	2;	.type	32;	.endef
-	.def	printf;	.scl	2;	.type	32;	.endef
+
+	.section	.rdata,"dr"
+L.str:                                  # @.str
+	.asciz	"sum: %ld\n"
+
+

@@ -1,78 +1,127 @@
-	.file	"1-3-for-statement-exercise-2-fn-call.c"
-	.intel_syntax noprefix
-	.section .rdata,"dr"
-.LC1:
-	.ascii "%3d %6.1f\12\0"
-	.section	.text.unlikely,"x"
-.LCOLDB2:
 	.text
-.LHOTB2:
-	.p2align 4,,15
+	.intel_syntax noprefix
+	.def	 foo;
+	.scl	2;
+	.type	32;
+	.endef
+	.section	.rdata,"dr"
+	.align	8
+LCPI0_0:
+	.quad	4603179219131243634     # double 0.55555555555555558
+	.text
 	.globl	foo
-	.def	foo;	.scl	2;	.type	32;	.endef
-	.seh_proc	foo
-foo:
-	sub	rsp, 56
-	.seh_stackalloc	56
-	vmovaps	XMMWORD PTR 32[rsp], xmm6
-	.seh_savexmm	xmm6, 32
+	.align	16, 0x90
+foo:                                    # @foo
+.Ltmp0:
+.seh_proc foo
+# BB#0:
+	push	rsi
+.Ltmp1:
+	.seh_pushreg 6
+	sub	rsp, 48
+.Ltmp2:
+	.seh_stackalloc 48
+	vmovaps	xmmword ptr [rsp + 32], xmm6 # 16-byte Spill
+.Ltmp3:
+	.seh_savexmm 6, 32
+.Ltmp4:
 	.seh_endprologue
+	mov	dword ptr [rip + foo.fahr], 300
 	mov	edx, 300
-	vmovsd	xmm6, QWORD PTR .LC0[rip]
-	mov	DWORD PTR fahr.2898[rip], 300
-	.p2align 4,,10
-.L2:
-	lea	eax, -32[rdx]
-	vxorpd	xmm0, xmm0, xmm0
+	vmovsd	xmm6, qword ptr [rip + LCPI0_0] # xmm6 = mem[0],zero
+	lea	rsi, [rip + L.str]
+	.align	16, 0x90
+.LBB0_1:                                # =>This Inner Loop Header: Depth=1
+	lea	eax, [rdx - 32]
+	vxorps	xmm0, xmm0, xmm0
 	vcvtsi2sd	xmm0, xmm0, eax
-	lea	rcx, .LC1[rip]
 	vmulsd	xmm0, xmm0, xmm6
 	vcvtsd2ss	xmm0, xmm0, xmm0
-	vcvtss2sd	xmm0, xmm0, xmm0
-	vmovapd	xmm2, xmm0
-	vmovq	r8, xmm0
+	vcvtss2sd	xmm2, xmm0, xmm0
+	mov	rcx, rsi
+	vmovq	r8, xmm2
 	call	printf
-	mov	eax, DWORD PTR fahr.2898[rip]
-	lea	edx, -20[rax]
-	mov	DWORD PTR fahr.2898[rip], edx
-	test	edx, edx
-	jns	.L2
-	vmovaps	xmm6, XMMWORD PTR 32[rsp]
-	add	rsp, 56
+	mov	edx, dword ptr [rip + foo.fahr]
+	add	edx, -20
+	mov	dword ptr [rip + foo.fahr], edx
+	jns	.LBB0_1
+# BB#2:
+	vmovaps	xmm6, xmmword ptr [rsp + 32] # 16-byte Reload
+	add	rsp, 48
+	pop	rsi
 	ret
-	.seh_endproc
-	.section	.text.unlikely,"x"
-.LCOLDE2:
+	.seh_handlerdata
 	.text
-.LHOTE2:
-	.def	__main;	.scl	2;	.type	32;	.endef
-	.section	.text.unlikely,"x"
-.LCOLDB3:
-	.section	.text.startup,"x"
-.LHOTB3:
-	.p2align 4,,15
+.Ltmp5:
+	.seh_endproc
+
+	.def	 main;
+	.scl	2;
+	.type	32;
+	.endef
+	.section	.rdata,"dr"
+	.align	8
+LCPI1_0:
+	.quad	4603179219131243634     # double 0.55555555555555558
+	.text
 	.globl	main
-	.def	main;	.scl	2;	.type	32;	.endef
-	.seh_proc	main
-main:
-	sub	rsp, 40
-	.seh_stackalloc	40
+	.align	16, 0x90
+main:                                   # @main
+.Ltmp6:
+.seh_proc main
+# BB#0:
+	push	rbp
+.Ltmp7:
+	.seh_pushreg 5
+	push	rsi
+.Ltmp8:
+	.seh_pushreg 6
+	sub	rsp, 56
+.Ltmp9:
+	.seh_stackalloc 56
+	lea	rbp, [rsp + 48]
+.Ltmp10:
+	.seh_setframe 5, 48
+	vmovaps	xmmword ptr [rbp - 16], xmm6 # 16-byte Spill
+.Ltmp11:
+	.seh_savexmm 6, 32
+.Ltmp12:
 	.seh_endprologue
 	call	__main
-	call	foo
+	mov	dword ptr [rip + foo.fahr], 300
+	mov	edx, 300
+	vmovsd	xmm6, qword ptr [rip + LCPI1_0] # xmm6 = mem[0],zero
+	lea	rsi, [rip + L.str]
+	.align	16, 0x90
+.LBB1_1:                                # =>This Inner Loop Header: Depth=1
+	lea	eax, [rdx - 32]
+	vxorps	xmm0, xmm0, xmm0
+	vcvtsi2sd	xmm0, xmm0, eax
+	vmulsd	xmm0, xmm0, xmm6
+	vcvtsd2ss	xmm0, xmm0, xmm0
+	vcvtss2sd	xmm2, xmm0, xmm0
+	mov	rcx, rsi
+	vmovq	r8, xmm2
+	call	printf
+	mov	edx, dword ptr [rip + foo.fahr]
+	add	edx, -20
+	mov	dword ptr [rip + foo.fahr], edx
+	jns	.LBB1_1
+# BB#2:                                 # %foo.exit
 	xor	eax, eax
-	add	rsp, 40
+	vmovaps	xmm6, xmmword ptr [rbp - 16] # 16-byte Reload
+	add	rsp, 56
+	pop	rsi
+	pop	rbp
 	ret
+	.seh_handlerdata
+	.text
+.Ltmp13:
 	.seh_endproc
-	.section	.text.unlikely,"x"
-.LCOLDE3:
-	.section	.text.startup,"x"
-.LHOTE3:
-.lcomm fahr.2898,4,4
-	.section .rdata,"dr"
-	.align 8
-.LC0:
-	.long	1908874354
-	.long	1071761180
-	.ident	"GCC: (GNU) 5.3.0"
-	.def	printf;	.scl	2;	.type	32;	.endef
+
+	.lcomm	foo.fahr,4,4            # @foo.fahr
+	.section	.rdata,"dr"
+L.str:                                  # @.str
+	.asciz	"%3d %6.1f\n"
+
+
