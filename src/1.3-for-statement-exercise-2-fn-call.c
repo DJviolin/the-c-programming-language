@@ -5,6 +5,9 @@
 
 #include <stdio.h>
 
+// int a;  // 0 -> because "linker visibility"
+// variable is accessible from other compilation units
+
 void foo(void) {
   // Only true when debug mode is on at compiling
   // int fahr;    // undefined -> garbage value in theory -> in practice: 0
