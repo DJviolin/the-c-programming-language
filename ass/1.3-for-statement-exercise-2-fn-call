@@ -18,43 +18,41 @@ foo:                                    # @foo
 	push	rsi
 .Ltmp1:
 	.seh_pushreg 6
-	push	rdi
+	sub	rsp, 48
 .Ltmp2:
-	.seh_pushreg 7
-	sub	rsp, 56
-.Ltmp3:
-	.seh_stackalloc 56
+	.seh_stackalloc 48
 	vmovaps	xmmword ptr [rsp + 32], xmm6 # 16-byte Spill
-.Ltmp4:
+.Ltmp3:
 	.seh_savexmm 6, 32
-.Ltmp5:
+.Ltmp4:
 	.seh_endprologue
-	mov	esi, 300
+	mov	dword ptr [rip + foo.fahr], 300
+	mov	edx, 300
 	vmovsd	xmm6, qword ptr [rip + LCPI0_0] # xmm6 = mem[0],zero
-	lea	rdi, [rip + L.str]
+	lea	rsi, [rip + L.str]
 	.align	16, 0x90
 .LBB0_1:                                # =>This Inner Loop Header: Depth=1
-	lea	eax, [rsi - 32]
+	lea	eax, [rdx - 32]
 	vxorps	xmm0, xmm0, xmm0
 	vcvtsi2sd	xmm0, xmm0, eax
 	vmulsd	xmm0, xmm0, xmm6
 	vcvtsd2ss	xmm0, xmm0, xmm0
 	vcvtss2sd	xmm2, xmm0, xmm0
-	mov	rcx, rdi
-	mov	edx, esi
+	mov	rcx, rsi
 	vmovq	r8, xmm2
 	call	printf
-	add	esi, -20
+	mov	edx, dword ptr [rip + foo.fahr]
+	add	edx, -20
+	mov	dword ptr [rip + foo.fahr], edx
 	jns	.LBB0_1
 # BB#2:
 	vmovaps	xmm6, xmmword ptr [rsp + 32] # 16-byte Reload
-	add	rsp, 56
-	pop	rdi
+	add	rsp, 48
 	pop	rsi
 	ret
 	.seh_handlerdata
 	.text
-.Ltmp6:
+.Ltmp5:
 	.seh_endproc
 
 	.def	 main;
@@ -69,60 +67,59 @@ LCPI1_0:
 	.globl	main
 	.align	16, 0x90
 main:                                   # @main
-.Ltmp7:
+.Ltmp6:
 .seh_proc main
 # BB#0:
 	push	rbp
-.Ltmp8:
+.Ltmp7:
 	.seh_pushreg 5
 	push	rsi
-.Ltmp9:
+.Ltmp8:
 	.seh_pushreg 6
-	push	rdi
-.Ltmp10:
-	.seh_pushreg 7
-	sub	rsp, 48
-.Ltmp11:
-	.seh_stackalloc 48
+	sub	rsp, 56
+.Ltmp9:
+	.seh_stackalloc 56
 	lea	rbp, [rsp + 48]
-.Ltmp12:
+.Ltmp10:
 	.seh_setframe 5, 48
 	vmovaps	xmmword ptr [rbp - 16], xmm6 # 16-byte Spill
-.Ltmp13:
+.Ltmp11:
 	.seh_savexmm 6, 32
-.Ltmp14:
+.Ltmp12:
 	.seh_endprologue
-	mov	esi, 300
 	call	__main
+	mov	dword ptr [rip + foo.fahr], 300
+	mov	edx, 300
 	vmovsd	xmm6, qword ptr [rip + LCPI1_0] # xmm6 = mem[0],zero
-	lea	rdi, [rip + L.str]
+	lea	rsi, [rip + L.str]
 	.align	16, 0x90
 .LBB1_1:                                # =>This Inner Loop Header: Depth=1
-	lea	eax, [rsi - 32]
+	lea	eax, [rdx - 32]
 	vxorps	xmm0, xmm0, xmm0
 	vcvtsi2sd	xmm0, xmm0, eax
 	vmulsd	xmm0, xmm0, xmm6
 	vcvtsd2ss	xmm0, xmm0, xmm0
 	vcvtss2sd	xmm2, xmm0, xmm0
-	mov	rcx, rdi
-	mov	edx, esi
+	mov	rcx, rsi
 	vmovq	r8, xmm2
 	call	printf
-	add	esi, -20
+	mov	edx, dword ptr [rip + foo.fahr]
+	add	edx, -20
+	mov	dword ptr [rip + foo.fahr], edx
 	jns	.LBB1_1
 # BB#2:                                 # %foo.exit
 	xor	eax, eax
 	vmovaps	xmm6, xmmword ptr [rbp - 16] # 16-byte Reload
-	add	rsp, 48
-	pop	rdi
+	add	rsp, 56
 	pop	rsi
 	pop	rbp
 	ret
 	.seh_handlerdata
 	.text
-.Ltmp15:
+.Ltmp13:
 	.seh_endproc
 
+	.lcomm	foo.fahr,4,4            # @foo.fahr
 	.section	.rdata,"dr"
 L.str:                                  # @.str
 	.asciz	"%3d %6.1f\n"
