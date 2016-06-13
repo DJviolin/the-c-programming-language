@@ -6,8 +6,8 @@
 #include <stdio.h>
 
 void foo(void) {
-  static int fahr;
-  static float calc;
+  static int fahr;    // 0
+  static float calc;  // 0.0
 
   for (fahr = 300; fahr >= 0; fahr = fahr - 20) {
     calc = (5.0 / 9.0) * (fahr - 32);
