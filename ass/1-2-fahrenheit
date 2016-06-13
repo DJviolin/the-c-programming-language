@@ -1,9 +1,9 @@
-	.file	"loop_sum.c"
+	.file	"1-2-fahrenheit.c"
 	.intel_syntax noprefix
 	.def	__main;	.scl	2;	.type	32;	.endef
 	.section .rdata,"dr"
 .LC0:
-	.ascii "sum: %ld\12\0"
+	.ascii "%3d\11%6d\12\0"
 	.section	.text.unlikely,"x"
 .LCOLDB1:
 	.section	.text.startup,"x"
@@ -13,15 +13,40 @@
 	.def	main;	.scl	2;	.type	32;	.endef
 	.seh_proc	main
 main:
-	sub	rsp, 40
-	.seh_stackalloc	40
+	push	rdi
+	.seh_pushreg	rdi
+	push	rsi
+	.seh_pushreg	rsi
+	push	rbx
+	.seh_pushreg	rbx
+	sub	rsp, 32
+	.seh_stackalloc	32
 	.seh_endprologue
+	mov	esi, -160
+	xor	ebx, ebx
+	mov	edi, 954437177
 	call	__main
+	.p2align 4,,10
+.L2:
 	lea	rcx, .LC0[rip]
-	movabs	rdx, 49999995000000
+	mov	eax, esi
+	imul	edi
+	mov	eax, esi
+	add	esi, 100
+	sar	eax, 31
+	sar	edx
+	mov	r8d, edx
+	mov	edx, ebx
+	add	ebx, 20
+	sub	r8d, eax
 	call	printf
+	cmp	ebx, 320
+	jne	.L2
 	xor	eax, eax
-	add	rsp, 40
+	add	rsp, 32
+	pop	rbx
+	pop	rsi
+	pop	rdi
 	ret
 	.seh_endproc
 	.section	.text.unlikely,"x"

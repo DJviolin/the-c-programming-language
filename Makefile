@@ -1,13 +1,12 @@
 # cd /c/www/clang/the-c-programming-language && make clean build assembly && time ./bin/1.1-hello
 
-CC := clang
+#CC := clang
+CC := gcc
 CFLAGS := -std=c11
-BINARY := -Wall -Wextra -g
-ASSEMBLY := -S -fverbose-asm -masm=intel
+BINARY := -Wall -Wextra -Werror -g
+ASSEMBLY := -S -masm=intel
 # Optimization flags: http://stackoverflow.com/a/15548189/1442219 | https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
 # http://www.phoronix.com/scan.php?page=article&item=clang-gcc-opts&num=2 | http://openbenchmarking.org/result/1602297-GA-SKYLAKEXE76
-#OPTIMIZE := -O3
-#OPTIMIZE := -Ofast -march=native
 OPTIMIZE := -O3 -march=native
 
 SRC := $(wildcard src/*.c)

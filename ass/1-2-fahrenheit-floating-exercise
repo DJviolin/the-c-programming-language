@@ -1,0 +1,84 @@
+	.file	"1-2-fahrenheit-floating-exercise.c"
+	.intel_syntax noprefix
+	.def	__main;	.scl	2;	.type	32;	.endef
+	.section .rdata,"dr"
+	.align 8
+.LC1:
+	.ascii "\12/////////////////////////////////////////////////////////////\12// This program prints Celsius to Fahrenheit conversion table\12/////////////////////////////////////////////////////////////\12\0"
+.LC4:
+	.ascii "%3.0f \302\260C\11 %5.1f \302\260F\12\0"
+	.section	.text.unlikely,"x"
+.LCOLDB6:
+	.section	.text.startup,"x"
+.LHOTB6:
+	.p2align 4,,15
+	.globl	main
+	.def	main;	.scl	2;	.type	32;	.endef
+	.seh_proc	main
+main:
+	push	rbx
+	.seh_pushreg	rbx
+	sub	rsp, 96
+	.seh_stackalloc	96
+	vmovaps	XMMWORD PTR 32[rsp], xmm6
+	.seh_savexmm	xmm6, 32
+	vmovaps	XMMWORD PTR 48[rsp], xmm7
+	.seh_savexmm	xmm7, 48
+	vmovaps	XMMWORD PTR 64[rsp], xmm8
+	.seh_savexmm	xmm8, 64
+	vmovaps	XMMWORD PTR 80[rsp], xmm9
+	.seh_savexmm	xmm9, 80
+	.seh_endprologue
+	mov	ebx, 16
+	call	__main
+	lea	rcx, .LC1[rip]
+	call	puts
+	vxorps	xmm6, xmm6, xmm6
+	vmovsd	xmm9, QWORD PTR .LC2[rip]
+	vmovsd	xmm8, QWORD PTR .LC3[rip]
+	vmovss	xmm7, DWORD PTR .LC5[rip]
+	.p2align 4,,10
+.L2:
+	vxorpd	xmm3, xmm3, xmm3
+	vcvtss2sd	xmm3, xmm3, xmm6
+	vmulsd	xmm0, xmm3, xmm9
+	vmovapd	xmm1, xmm3
+	lea	rcx, .LC4[rip]
+	vmovq	rdx, xmm3
+	vaddsd	xmm0, xmm0, xmm8
+	vcvtsd2ss	xmm0, xmm0, xmm0
+	vcvtss2sd	xmm0, xmm0, xmm0
+	vmovapd	xmm2, xmm0
+	vmovq	r8, xmm0
+	call	printf
+	vaddss	xmm6, xmm6, xmm7
+	sub	ebx, 1
+	jne	.L2
+	vmovaps	xmm6, XMMWORD PTR 32[rsp]
+	xor	eax, eax
+	vmovaps	xmm7, XMMWORD PTR 48[rsp]
+	vmovaps	xmm8, XMMWORD PTR 64[rsp]
+	vmovaps	xmm9, XMMWORD PTR 80[rsp]
+	add	rsp, 96
+	pop	rbx
+	ret
+	.seh_endproc
+	.section	.text.unlikely,"x"
+.LCOLDE6:
+	.section	.text.startup,"x"
+.LHOTE6:
+	.section .rdata,"dr"
+	.align 8
+.LC2:
+	.long	3435973837
+	.long	1073532108
+	.align 8
+.LC3:
+	.long	0
+	.long	1077936128
+	.align 4
+.LC5:
+	.long	1101004800
+	.ident	"GCC: (GNU) 5.3.0"
+	.def	puts;	.scl	2;	.type	32;	.endef
+	.def	printf;	.scl	2;	.type	32;	.endef

@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-  argc = 0;
+  (void)argc;
+
   int arg1 = 1;
 
   arg1 = atoi(argv[1]);

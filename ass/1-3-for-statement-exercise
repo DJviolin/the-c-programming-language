@@ -1,0 +1,58 @@
+	.file	"1-3-for-statement-exercise.c"
+	.intel_syntax noprefix
+	.def	__main;	.scl	2;	.type	32;	.endef
+	.section .rdata,"dr"
+.LC1:
+	.ascii "%3d %6.1f\12\0"
+	.section	.text.unlikely,"x"
+.LCOLDB2:
+	.section	.text.startup,"x"
+.LHOTB2:
+	.p2align 4,,15
+	.globl	main
+	.def	main;	.scl	2;	.type	32;	.endef
+	.seh_proc	main
+main:
+	push	rbx
+	.seh_pushreg	rbx
+	sub	rsp, 48
+	.seh_stackalloc	48
+	vmovaps	XMMWORD PTR 32[rsp], xmm6
+	.seh_savexmm	xmm6, 32
+	.seh_endprologue
+	mov	ebx, 300
+	call	__main
+	vmovsd	xmm6, QWORD PTR .LC0[rip]
+	.p2align 4,,10
+.L2:
+	lea	eax, -32[rbx]
+	vxorpd	xmm0, xmm0, xmm0
+	mov	edx, ebx
+	sub	ebx, 20
+	vcvtsi2sd	xmm0, xmm0, eax
+	lea	rcx, .LC1[rip]
+	vmulsd	xmm0, xmm0, xmm6
+	vcvtsd2ss	xmm0, xmm0, xmm0
+	vcvtss2sd	xmm0, xmm0, xmm0
+	vmovapd	xmm2, xmm0
+	vmovq	r8, xmm0
+	call	printf
+	cmp	ebx, -20
+	jne	.L2
+	vmovaps	xmm6, XMMWORD PTR 32[rsp]
+	xor	eax, eax
+	add	rsp, 48
+	pop	rbx
+	ret
+	.seh_endproc
+	.section	.text.unlikely,"x"
+.LCOLDE2:
+	.section	.text.startup,"x"
+.LHOTE2:
+	.section .rdata,"dr"
+	.align 8
+.LC0:
+	.long	1908874354
+	.long	1071761180
+	.ident	"GCC: (GNU) 5.3.0"
+	.def	printf;	.scl	2;	.type	32;	.endef

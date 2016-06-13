@@ -1,9 +1,9 @@
-	.file	"loop_sum.c"
+	.file	"1-1-hello.c"
 	.intel_syntax noprefix
 	.def	__main;	.scl	2;	.type	32;	.endef
 	.section .rdata,"dr"
 .LC0:
-	.ascii "sum: %ld\12\0"
+	.ascii "hello, world\0"
 	.section	.text.unlikely,"x"
 .LCOLDB1:
 	.section	.text.startup,"x"
@@ -18,8 +18,7 @@ main:
 	.seh_endprologue
 	call	__main
 	lea	rcx, .LC0[rip]
-	movabs	rdx, 49999995000000
-	call	printf
+	call	puts
 	xor	eax, eax
 	add	rsp, 40
 	ret
@@ -29,4 +28,4 @@ main:
 	.section	.text.startup,"x"
 .LHOTE1:
 	.ident	"GCC: (GNU) 5.3.0"
-	.def	printf;	.scl	2;	.type	32;	.endef
+	.def	puts;	.scl	2;	.type	32;	.endef
