@@ -24,4 +24,4 @@ $(BIN): bin/%: src/%.c
 
 assembly: $(ASS)
 $(ASS): ass/%: src/%.c
-	$(CC) $(CFLAGS) $(ASSEMBLY) $(OPTIMIZE) $^ -o $@
+	$(CC) $(CFLAGS) $(ASSEMBLY) $(OPTIMIZE) $^ -o $@.s
