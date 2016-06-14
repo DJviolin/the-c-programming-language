@@ -20,8 +20,6 @@
 
 ##### C11 valid `main()` function declaration
 
-Links:
-
 [SlideShare - Deep C](http://www.slideshare.net/olvemaudal/deep-c)
 
 [StackOverflow - What are the valid signatures for C's main() function? [duplicate]](http://stackoverflow.com/a/2108208/1442219)
@@ -41,3 +39,18 @@ Main function: `int main(void) {}`
 Other functions: `int f()` becomes `int f(void)`
 
 ***
+
+##### C Variable Declaration
+
+[StackOverflow - Initializing variables in C](http://stackoverflow.com/a/7975099/1442219)
+
+[StackOverflow - Deoptimizing a program for the pipeline in Intel Sandybridge-family CPUs](http://stackoverflow.com/a/37362225/1442219)
+
+When the variable is declared inside a function it is not initialised, and when it is declared in static or global scope it's set to 0:
+
+```c
+int a; // is set to 0
+void foo() {
+  int b;  // set to whatever happens to be in memory there
+}
+```
