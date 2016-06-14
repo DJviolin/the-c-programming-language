@@ -74,7 +74,7 @@ Private vs Public Variables:
 
 ***
 
-###### input & output
+##### input & output
 
 ```c
 printf() // Writes output
