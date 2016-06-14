@@ -118,3 +118,44 @@ scanf()  // reads input
 ```
 
 ***
+
+##### C Data Types
+
+```c
+    int     // integer -> e.g. 4
+    float   // floating point -> numbers that may have fractional part e.g. 3.234
+    char    // character -> a single byte
+    short   // short integer
+    long    // long integer
+    double  // double-precision floating point
+```
+
+***
+
+##### Output Formatting
+
+```c
+%d     // print as decimal integer
+%6d    // print as decimal integer, at least 6 characters wide
+%f     // print as floating point
+%6f    // print as floating point, at least 6 characters wide
+%.2f   // print as floating point, 2 characters after decimal point
+%6.2f  // print as floating point, at least 6 wide and 2 after decimal point
+```
+
+- Among others, printf also recognizes `%o` for octal, `%x` for hexadecimal, `%c` for character, `%s` for character string, and `%%` for % itself.
+
+***
+
+##### Symbolic constants
+
+```c
+#define   NAME   replacement_text
+```
+
+- not in quotes and not part of another name
+- The name has the same form as a variable name: a sequence of letters and digits that begins with a letter
+- The replacement text can be any sequence of characters; it is not limited to numbers
+- The quantities of NAME are symbolic constants, not variables, so they do not appear in declarations
+
+***
