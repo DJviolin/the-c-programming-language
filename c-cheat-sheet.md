@@ -82,3 +82,39 @@ scanf()  // reads input
 ```
 
 ***
+
+##### int & float
+
+- integer numbers truncate `(5 / 9 = 0.55 -> 0. -> 0)`!
+- floating-point numbers NOT truncate -> Mathematical orders in arithmetic ALWAYS work!
+
+***
+
+##### Escape Sequences - Complete set
+
+```c
+\a    // alert (bell) character
+\b    // backspace
+\f    // formfeed
+\n    // newline
+\r    // carriage return
+\t    // horizontal tab
+\v    // vertical tab
+\\    // backslash
+\?    // question mark
+\’    // single quote
+\"    // double quote
+\ooo  // octal number
+\xhh  // hexadecimal number
+```
+
+##### Defining Escape Sequences
+
+```c
+#define VTAB ’\013’  // ASCII vertical tab
+#define BELL ’\007’  // ASCII bell character
+#define VTAB ’\xb’   // ASCII vertical tab - hexadecimal
+#define BELL ’\x7’   // ASCII bell character - hexadecimal
+```
+
+***
