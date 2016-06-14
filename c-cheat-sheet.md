@@ -1,6 +1,6 @@
 ## C Cheat Sheet for personal learning paths
 
-#### C11 Standard
+##### C11 Standard
 
 [http://www.open-std.org/JTC1/SC22/WG14/](http://www.open-std.org/JTC1/SC22/WG14/)
 
@@ -10,7 +10,7 @@
 
 ***
 
-#### Useful links
+##### Useful links
 
 [SlideShare - Deep C](http://www.slideshare.net/olvemaudal/deep-c/)
 
@@ -18,4 +18,4 @@
 
 ***
 
-#### C11 valid `main()` function declaration
+##### C11 valid `main()` function declaration
