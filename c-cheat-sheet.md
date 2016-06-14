@@ -19,3 +19,24 @@
 ***
 
 ##### C11 valid `main()` function declaration
+
+Links:
+
+[SlideShare - Deep C](http://www.slideshare.net/olvemaudal/deep-c)
+
+[StackOverflow - What are the valid signatures for C's main() function? [duplicate]](http://stackoverflow.com/a/2108208/1442219)
+
+[StackOverflow - Standard way to define parameter-less function main() in C](http://stackoverflow.com/a/8022395/1442219)
+
+[StackOverflow - Must declare function prototype in C? [duplicate]](http://stackoverflow.com/a/2575186/1442219)
+
+[StackOverflow - Declare main prototype](http://stackoverflow.com/a/5020691/1442219)
+
+[C11 Standard - 5.1.2.2.1 Program startup - Page 31](http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1570.pdf)
+
+##### Standard Way of function declarations
+
+Main function: `int main(void) {};`
+Other functions: `int f();` becomes `int f(void);`
+
+***
