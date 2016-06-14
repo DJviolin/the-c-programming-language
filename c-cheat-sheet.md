@@ -36,7 +36,7 @@ Links:
 
 ##### Standard Way of function declarations
 
-Main function: `int main(void) {};`
-Other functions: `int f();` becomes `int f(void);`
+Main function: `int main(void) {}`
+Other functions: `int f()` becomes `int f(void)`
 
 ***
