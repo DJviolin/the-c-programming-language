@@ -1,7 +1,5 @@
 ## C Cheat Sheet for personal learning paths
 
-***
-
 #### C11 Standard
 
 [http://www.open-std.org/JTC1/SC22/WG14/](http://www.open-std.org/JTC1/SC22/WG14/)
