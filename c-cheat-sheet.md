@@ -143,7 +143,7 @@ scanf()  // reads input
 %6.2f  // print as floating point, at least 6 wide and 2 after decimal point
 ```
 
-- Among others, printf also recognizes `%o` for octal, `%x` for hexadecimal, `%c` for character, `%s` for character string, and `%%` for % itself.
+- Among others, `printf()` also recognizes `%o` for octal, `%x` for hexadecimal, `%c` for character, `%s` for character string, and `%%` for % itself.
 
 ***
 
