@@ -18,3 +18,4 @@
 
 ***
 
+#### C11 valid main() function declaration
