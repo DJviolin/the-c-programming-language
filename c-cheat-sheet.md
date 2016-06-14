@@ -16,6 +16,12 @@
 
 [Compiler Explorer](http://gcc.godbolt.org/#compilers:!((compiler:clang380,options:%27-xc+-std%3Dgnu11+-Wall+-Wextra+-fverbose-asm+-O3+-march%3Dhaswell%27,source:%27%23include+%3Cstdio.h%3E%0A%0Avoid+foo(void)+%7B%0A++int+fahr%3B%0A++float+calc%3B%0A%0A++for+(fahr+%3D+300%3B+fahr+%3E%3D+0%3B+fahr+%3D+fahr+-+20)+%7B%0A++++calc+%3D+(5.0+/+9.0)+*+(fahr+-+32)%3B%0A++++printf(%22%253d+%256.1f%5Cn%22,+fahr,+calc)%3B%0A++%7D%0A%7D%0A%0Aint+main(void)+%7B%0A++foo()%3B%0A++return+0%3B%0A%7D%27)),filterAsm:(commentOnly:!t,directives:!t,labels:!t),version:3)
 
+##### Code Block CPU Execution Time Benchmark
+
+[StackOverflow - rdtsc & rdtscp #1](http://stackoverflow.com/questions/12631856/difference-between-rdtscp-rdtsc-memory-and-cpuid-rdtsc)
+
+[StackOverflow - rdtsc & rdtscp #2](http://stackoverflow.com/questions/27693145/rdtscp-versus-rdtsc-cpuid)
+
 ***
 
 ##### C11 valid `main()` function declaration
