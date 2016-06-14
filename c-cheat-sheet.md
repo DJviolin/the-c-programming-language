@@ -52,7 +52,7 @@ Other functions: `int f()` becomes `int f(void)`
 
 [StackOverflow - Deoptimizing a program for the pipeline in Intel Sandybridge-family CPUs](http://stackoverflow.com/a/37362225/1442219)
 
-When the variable is declared inside a function it is not initialised, and when it is declared in static or global scope it's set to 0:
+> When the variable is declared inside a function it is not initialised, and when it is declared in static or global scope it's set to 0:
 
 ```c
 int a; // is set to 0
@@ -61,13 +61,13 @@ void foo() {
 }
 ```
 
-The cost of setting auto variables to 0 would increase the cost of function calls. Memsetting the global data segment to 0 however, is a one time cost, that happens at startup. -> Garbage value -> Compiler translating it to 0 in Debug Mode, just like when it's `static int 0;`:
+> The cost of setting auto variables to 0 would increase the cost of function calls. Memsetting the global data segment to 0 however, is a one time cost, that happens at startup. -> Garbage value -> Compiler translating it to 0 in Debug Mode, just like when it's `static int 0;`:
 
 ```c
 int a; // undefined
 ```
 
-Standard variables are initialized to 0:
+> Standard variables are initialized to 0:
 
 ```c
 static int a; // 0
@@ -91,8 +91,8 @@ scanf()  // reads input
 
 ##### int & float
 
-- integer numbers truncate `(5 / 9 = 0.55 -> 0. -> 0)`!
-- floating-point numbers NOT truncate -> Mathematical orders in arithmetic ALWAYS work!
+> integer numbers truncate `(5 / 9 = 0.55 -> 0. -> 0)`!
+> floating-point numbers NOT truncate -> Mathematical orders in arithmetic ALWAYS work!
 
 ***
 
@@ -149,7 +149,7 @@ double  // double-precision floating point
 %6.2f  // print as floating point, at least 6 wide and 2 after decimal point
 ```
 
-- Among others, `printf()` also recognizes `%o` for octal, `%x` for hexadecimal, `%c` for character, `%s` for character string, and `%%` for % itself.
+> Among others, `printf()` also recognizes `%o` for octal, `%x` for hexadecimal, `%c` for character, `%s` for character string, and `%%` for % itself.
 
 ***
 
