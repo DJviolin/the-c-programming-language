@@ -1,5 +1,6 @@
-C Cheat Sheet for personal learning paths
-------
+## C Cheat Sheet for personal learning paths
+
+***
 
 #### C11 Standard
 
