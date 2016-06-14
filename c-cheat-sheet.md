@@ -54,3 +54,15 @@ void foo() {
   int b;  // set to whatever happens to be in memory there
 }
 ```
+
+The cost of setting auto variables to 0 would increase the cost of function calls. Memsetting the global data segment to 0 however, is a one time cost, that happens at startup. -> Garbage value -> Compiler translating it to 0 in Debug Mode, just like when it's `static int 0;`:
+
+```c
+int a; // undefined
+```
+
+Standard variables are initialized to 0:
+
+```c
+static int a; // 0
+```
