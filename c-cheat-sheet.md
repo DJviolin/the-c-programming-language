@@ -128,12 +128,12 @@ scanf()  // reads input
 ##### C Data Types
 
 ```c
-    int     // integer -> e.g. 4
-    float   // floating point -> numbers that may have fractional part e.g. 3.234
-    char    // character -> a single byte
-    short   // short integer
-    long    // long integer
-    double  // double-precision floating point
+int     // integer -> e.g. 4
+float   // floating point -> numbers that may have fractional part e.g. 3.234
+char    // character -> a single byte
+short   // short integer
+long    // long integer
+double  // double-precision floating point
 ```
 
 ***
