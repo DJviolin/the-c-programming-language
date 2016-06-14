@@ -66,3 +66,19 @@ Standard variables are initialized to 0:
 ```c
 static int a; // 0
 ```
+
+Private vs Public Variables:
+
+```c
+```
+
+***
+
+###### input & output
+
+```c
+printf() // Writes output
+scanf()  // reads input
+```
+
+***
