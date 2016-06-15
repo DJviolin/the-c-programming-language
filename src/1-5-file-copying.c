@@ -5,15 +5,12 @@
 #include <stdio.h>
 
 int main(void) {
-  int c;
+  static int c;
 
-  // c = getchar();      // scanf("%d", &c);
-  scanf("%d", &c);
+  c = getchar();      // scanf("%d", &c);
   while (c != EOF) {  // != -> not equal to
-    // putchar(c);       // printf("%d", c);
-    printf("%d", c);
-    // c = getchar();
-    scanf("%d", &c);
+    putchar(c);       // printf("%d", c);
+    c = getchar();
   }
 
   return 0;
