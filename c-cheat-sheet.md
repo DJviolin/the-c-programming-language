@@ -202,3 +202,8 @@ while (character is not end-of-file indicator)
   output the character just read
   read a character
 ```
+
+```c
+c = getchar();  // scanf("%d", &c);
+putchar(c);     // printf("%d", c);
+```
