@@ -155,6 +155,8 @@ double  // double-precision floating point
 
 ##### Symbolic constants
 
+A #define line defines a symbolic name or symbolic constant to be a particular string of characters:
+
 ```c
 #define   NAME   replacement_text
 ```
