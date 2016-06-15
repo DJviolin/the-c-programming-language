@@ -8,6 +8,10 @@
 
 [http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1570.pdf](http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1570.pdf)
 
+##### C11 Standard Library Reference
+
+[http://www.tutorialspoint.com/c_standard_library/](http://www.tutorialspoint.com/c_standard_library/)
+
 ***
 
 ##### Useful links
