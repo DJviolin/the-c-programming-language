@@ -36,7 +36,7 @@ main:                                   # @main
 	mov	edx, dword ptr [rip + main.ch]
 	inc	edx
 	mov	dword ptr [rip + main.ch], edx
-	cmp	edx, 257
+	cmp	edx, 256
 	jl	.LBB0_1
 # BB#2:
 	xor	eax, eax
