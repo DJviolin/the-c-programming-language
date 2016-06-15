@@ -12,6 +12,8 @@
 
 [http://www.tutorialspoint.com/c_standard_library/](http://www.tutorialspoint.com/c_standard_library/)
 
+[http://www.cplusplus.com/reference/clibrary/](http://www.cplusplus.com/reference/clibrary/)
+
 ***
 
 ##### Useful links
