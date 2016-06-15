@@ -161,7 +161,7 @@ A #define line defines a symbolic name or symbolic constant to be a particular s
 #define   NAME   replacement_text
 ```
 
-- not in quotes and not part of another name
+- any occurrence of name (not in quotes and not part of another name) will be replaced by the corresponding replacement text
 - The name has the same form as a variable name: a sequence of letters and digits that begins with a letter
 - The replacement text can be any sequence of characters; it is not limited to numbers
 - The quantities of NAME are symbolic constants, not variables, so they do not appear in declarations
