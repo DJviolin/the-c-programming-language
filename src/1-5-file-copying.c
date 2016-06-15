@@ -7,7 +7,7 @@
 int main(void) {
   static int c;
 
-  c = getchar();
+  c = getchar();      // scanf("%d", &c);
   while (c != EOF) {  // != -> not equal to
     putchar(c);       // printf("%d", c);
     c = getchar();
