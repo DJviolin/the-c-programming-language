@@ -167,3 +167,25 @@ A #define line defines a symbolic name or symbolic constant to be a particular s
 - The quantities of NAME are symbolic constants, not variables, so they do not appear in declarations
 
 ***
+
+##### 1.5 Character Input and Output
+
+```c
+c = getchar();
+```
+
+- Each time it is called, getchar reads the next input character from a text stream and returns that as its value
+- Variable `c` contains the next character of input
+- The characters normally come from the keyboard
+
+```c
+putchar(c);
+```
+
+- The function putchar prints a character each time it is called, prints the contents of the integer variable c as a character, usually on the screen
+- Calls to putchar and printf may be interleaved; the output will appear in the order in which the calls are made
+
+***
+
+##### 1.5.1 File Copying
+
