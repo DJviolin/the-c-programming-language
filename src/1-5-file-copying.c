@@ -9,7 +9,7 @@ int main(void) {
 
   c = getchar();
   while (c != EOF) {  // != -> not equal to
-    putchar(c);
+    putchar(c);       // printf("%d", c);
     c = getchar();
   }
 
