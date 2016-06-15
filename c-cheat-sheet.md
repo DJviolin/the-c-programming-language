@@ -87,8 +87,10 @@ Private vs Public Variables:
 ##### input & output
 
 ```c
-printf() // Writes output
-scanf()  // reads input
+printf()   // Writes output
+putchar()  // Writes output
+scanf()    // reads input
+getchar()  // reads input
 ```
 
 ***
