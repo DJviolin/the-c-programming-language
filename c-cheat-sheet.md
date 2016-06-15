@@ -56,6 +56,8 @@ Other functions: `int f()` becomes `int f(void)`
 
 [StackOverflow - Deoptimizing a program for the pipeline in Intel Sandybridge-family CPUs](http://stackoverflow.com/a/37362225/1442219)
 
+[SlideShare - Deep C](http://www.slideshare.net/olvemaudal/deep-c/)
+
 When the variable is declared inside a function it is not initialised, and when it is declared in static or global scope it's set to 0:
 
 ```c
