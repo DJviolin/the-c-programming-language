@@ -20,7 +20,7 @@
 
 int main(void) {
   static bool fucked;    // Someone just came in the wrong place, bro
-  static bool earlyCum;  // We doesn't give a shit about unhappy endings
+  static bool earlyCum;  // We don't give a shit about unhappy endings
   static double gpsLat;  // Latitude
   static double gpsLon;  // Longitude
 
