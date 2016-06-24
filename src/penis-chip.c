@@ -12,7 +12,7 @@
  * <ke*********@gmail.com>
  * With the following message: "Thank You for cutting development costs for us!"
  *
- * Spray We Pray!
+ * Spray & Pray!
  */
 
 #include <stdbool.h>
