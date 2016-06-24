@@ -4,7 +4,9 @@
  *
  * Recommended compiling method:
  * $ clang -std=c11 -Wall -Wextra -Werror -g -Ofast -march=native -ffast-math \
- * chip.c -o chip
+ * penis-chip.c -o penis-chip
+ * Execute with:
+ * $ time ./penis-chip
  *
  * Send your millions of dollars for the following PayPal address:
  * <ke*********@gmail.com>
@@ -41,7 +43,7 @@ int main(void) {
         "You can continue to washing dishies!");
   } else {
     printf("Really there's no problem honey!");
-  };
+  }
 
   printf("\n\nProgram finished execution!");
 
