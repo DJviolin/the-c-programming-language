@@ -8,7 +8,7 @@ void calc(void) {
   static float width;
   static float height;
 
-  printf("Step 2/1: Enter field's width: ");
+  printf("Step 1/2: Enter field's width: ");
   scanf("%f", &width);
 
   printf("Step 2/2: Enter field's height: ");
@@ -19,6 +19,7 @@ void calc(void) {
 }
 
 int main(void) {
+  setbuf(stdout, NULL);  // http://stackoverflow.com/a/16877432/1442219
   calc();
   return 0;
 }

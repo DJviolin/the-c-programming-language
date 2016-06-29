@@ -71,6 +71,10 @@ main:                                   # @main
 .Ltmp10:
 	.seh_endprologue
 	call	__main
+	call	qword ptr [rip + __imp___iob_func]
+	lea	rcx, [rax + 48]
+	xor	edx, edx
+	call	setbuf
 	lea	rcx, [rip + L.str]
 	call	printf
 	lea	rsi, [rip + L.str.1]
@@ -104,7 +108,7 @@ main:                                   # @main
 	.lcomm	calc.height,4,4         # @calc.height
 	.section	.rdata,"dr"
 L.str:                                  # @.str
-	.asciz	"Step 2/1: Enter field's width: "
+	.asciz	"Step 1/2: Enter field's width: "
 
 L.str.1:                                # @.str.1
 	.asciz	"%f"
