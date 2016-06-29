@@ -21,20 +21,37 @@ calc:                                   # @calc
 	lea	rcx, [rip + L.str]
 	call	printf
 	lea	rsi, [rip + L.str.1]
-	lea	rdx, [rip + calc.width]
+	lea	rdx, [rip + calc.a]
 	mov	rcx, rsi
 	call	scanf
 	lea	rcx, [rip + L.str.2]
 	call	printf
-	lea	rdx, [rip + calc.height]
+	lea	rdx, [rip + calc.b]
 	mov	rcx, rsi
 	call	scanf
-	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.width]
+	vmovss	xmm0, dword ptr [rip + calc.a] # xmm0 = mem[0],zero,zero,zero
+	vmovss	xmm1, dword ptr [rip + calc.b] # xmm1 = mem[0],zero,zero,zero
+	vaddss	xmm2, xmm1, xmm0
+	vaddss	xmm2, xmm2, xmm2
+	vmovss	dword ptr [rip + calc.perimeter], xmm2
+	vmulss	xmm1, xmm1, xmm0
+	vmovss	dword ptr [rip + calc.area], xmm1
+	vcvtss2sd	xmm1, xmm0, xmm0
 	lea	rcx, [rip + L.str.3]
 	vmovq	rdx, xmm1
 	call	printf
-	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.height]
+	vxorps	xmm0, xmm0, xmm0
+	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.b]
 	lea	rcx, [rip + L.str.4]
+	vmovq	rdx, xmm1
+	call	printf
+	vxorps	xmm0, xmm0, xmm0
+	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.perimeter]
+	lea	rcx, [rip + L.str.5]
+	vmovq	rdx, xmm1
+	call	printf
+	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.area]
+	lea	rcx, [rip + L.str.6]
 	vmovq	rdx, xmm1
 	call	printf
 	nop
@@ -78,20 +95,37 @@ main:                                   # @main
 	lea	rcx, [rip + L.str]
 	call	printf
 	lea	rsi, [rip + L.str.1]
-	lea	rdx, [rip + calc.width]
+	lea	rdx, [rip + calc.a]
 	mov	rcx, rsi
 	call	scanf
 	lea	rcx, [rip + L.str.2]
 	call	printf
-	lea	rdx, [rip + calc.height]
+	lea	rdx, [rip + calc.b]
 	mov	rcx, rsi
 	call	scanf
-	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.width]
+	vmovss	xmm0, dword ptr [rip + calc.a] # xmm0 = mem[0],zero,zero,zero
+	vmovss	xmm1, dword ptr [rip + calc.b] # xmm1 = mem[0],zero,zero,zero
+	vaddss	xmm2, xmm1, xmm0
+	vaddss	xmm2, xmm2, xmm2
+	vmovss	dword ptr [rip + calc.perimeter], xmm2
+	vmulss	xmm1, xmm1, xmm0
+	vmovss	dword ptr [rip + calc.area], xmm1
+	vcvtss2sd	xmm1, xmm0, xmm0
 	lea	rcx, [rip + L.str.3]
 	vmovq	rdx, xmm1
 	call	printf
-	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.height]
+	vxorps	xmm0, xmm0, xmm0
+	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.b]
 	lea	rcx, [rip + L.str.4]
+	vmovq	rdx, xmm1
+	call	printf
+	vxorps	xmm0, xmm0, xmm0
+	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.perimeter]
+	lea	rcx, [rip + L.str.5]
+	vmovq	rdx, xmm1
+	call	printf
+	vcvtss2sd	xmm1, xmm0, dword ptr [rip + calc.area]
+	lea	rcx, [rip + L.str.6]
 	vmovq	rdx, xmm1
 	call	printf
 	xor	eax, eax
@@ -104,22 +138,30 @@ main:                                   # @main
 .Ltmp11:
 	.seh_endproc
 
-	.lcomm	calc.width,4,4          # @calc.width
-	.lcomm	calc.height,4,4         # @calc.height
+	.lcomm	calc.a,4,4              # @calc.a
+	.lcomm	calc.b,4,4              # @calc.b
+	.lcomm	calc.perimeter,4,4      # @calc.perimeter
+	.lcomm	calc.area,4,4           # @calc.area
 	.section	.rdata,"dr"
 L.str:                                  # @.str
-	.asciz	"Step 1/2: Enter field's width: "
+	.asciz	"Step 1/2: Enter field's width (m): "
 
 L.str.1:                                # @.str.1
 	.asciz	"%f"
 
 L.str.2:                                # @.str.2
-	.asciz	"Step 2/2: Enter field's height: "
+	.asciz	"Step 2/2: Enter field's height (m): "
 
 L.str.3:                                # @.str.3
-	.asciz	"Field width: %f\n"
+	.asciz	"\nWidth: %f m\n"
 
 L.str.4:                                # @.str.4
-	.asciz	"Field height: %f"
+	.asciz	"Height: %f m\n"
+
+L.str.5:                                # @.str.5
+	.asciz	"Perimeter: %f m\n"
+
+L.str.6:                                # @.str.6
+	.asciz	"Area: %f m2\n"
 
 

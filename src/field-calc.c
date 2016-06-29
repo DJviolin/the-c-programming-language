@@ -5,17 +5,21 @@
 #include <stdio.h>
 
 void calc(void) {
-  static float width;
-  static float height;
+  static float a, b, perimeter, area;
 
-  printf("Step 1/2: Enter field's width: ");
-  scanf("%f", &width);
+  printf("Step 1/2: Enter field's width (m): ");
+  scanf("%f", &a);
 
-  printf("Step 2/2: Enter field's height: ");
-  scanf("%f", &height);
+  printf("Step 2/2: Enter field's height (m): ");
+  scanf("%f", &b);
 
-  printf("Field width: %f\n", width);
-  printf("Field height: %f", height);
+  perimeter = (a + b) * 2;
+  area = a * b;
+
+  printf("\nWidth: %f m\n", a);
+  printf("Height: %f m\n", b);
+  printf("Perimeter: %f m\n", perimeter);
+  printf("Area: %f m2\n", area);
 }
 
 int main(void) {
