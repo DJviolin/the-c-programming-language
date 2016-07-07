@@ -1,5 +1,6 @@
 # cd c:/www/clang/the-c-programming-language && make clean build assembly cpp
 # cd /c/www/clang/the-c-programming-language && time ./bin/1-1-hello && time ./bin/hello
+# cd /c/www/clang/the-c-programming-language && time ./bin/1-3-for-statement-exercise && time ./bin/1-3-for-statement-exercise-cpp
 
 CC := clang
 CC_CPP := clang++
