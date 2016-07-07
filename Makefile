@@ -2,8 +2,10 @@
 # cd /c/www/clang/the-c-programming-language && time ./bin/1-1-hello && time ./bin/hello
 
 CC := clang
+CC_CPP := clang++
 #CC := gcc
 CFLAGS := -std=c11
+CFLAGS_CPP := -std=c++1z
 BINARY := -Wall -Wextra -Werror -g
 ASSEMBLY := -S -masm=intel
 # Optimization flags: http://stackoverflow.com/a/15548189/1442219 | https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
@@ -13,7 +15,9 @@ ASSEMBLY := -S -masm=intel
 OPTIMIZE := -Ofast -march=native -ffast-math
 
 SRC := $(wildcard src/*.c)
+SRC_CPP := $(wildcard src/*.cpp)
 BIN := $(patsubst src/%.c,bin/%,$(SRC))
+BIN_CPP := $(patsubst src/%.cpp,bin/%,$(SRC_CPP))
 ASS := $(patsubst src/%.c,ass/%,$(SRC))
 
 clean:
@@ -26,11 +30,6 @@ $(BIN): bin/%: src/%.c
 assembly: $(ASS)
 $(ASS): ass/%: src/%.c
 	$(CC) $(CFLAGS) $(ASSEMBLY) $(OPTIMIZE) $^ -o $@.s
-
-CC_CPP := clang++
-CFLAGS_CPP := -std=c++1z
-SRC_CPP := $(wildcard src/*.cpp)
-BIN_CPP := $(patsubst src/%.cpp,bin/%,$(SRC_CPP))
 
 cpp: $(BIN_CPP)
 $(BIN_CPP): bin/%: src/%.cpp
