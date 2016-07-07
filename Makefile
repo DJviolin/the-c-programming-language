@@ -1,4 +1,5 @@
-# cd /c/www/clang/the-c-programming-language && make clean build assembly && time ./bin/1.1-hello
+# cd c:/www/clang/the-c-programming-language && make clean build assembly cpp
+# cd /c/www/clang/the-c-programming-language && time ./bin/1-1-hello && time ./bin/hello
 
 CC := clang
 #CC := gcc
@@ -25,3 +26,12 @@ $(BIN): bin/%: src/%.c
 assembly: $(ASS)
 $(ASS): ass/%: src/%.c
 	$(CC) $(CFLAGS) $(ASSEMBLY) $(OPTIMIZE) $^ -o $@.s
+
+CC_CPP := clang++
+CFLAGS_CPP := -std=c++1z
+SRC_CPP := $(wildcard src/*.cpp)
+BIN_CPP := $(patsubst src/%.cpp,bin/%,$(SRC_CPP))
+
+cpp: $(BIN_CPP)
+$(BIN_CPP): bin/%: src/%.cpp
+	$(CC_CPP) $(CFLAGS_CPP) $(BINARY) $(OPTIMIZE) $^ -o $@
