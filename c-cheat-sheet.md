@@ -14,6 +14,8 @@
 
 [http://www.cplusplus.com/reference/clibrary/](http://www.cplusplus.com/reference/clibrary/)
 
+[http://code-reference.com/c](http://code-reference.com/c)
+
 ***
 
 ##### Useful links
