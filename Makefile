@@ -7,7 +7,7 @@ CC_CPP := clang++
 #CC := gcc
 CFLAGS := -std=c11
 CFLAGS_CPP := -std=c++1z
-BINARY := -Wall -Wextra -Werror -g
+BINARY := -Wall -g -Wextra -Wformat -Werror
 ASSEMBLY := -S -masm=intel
 # Optimization flags: http://stackoverflow.com/a/15548189/1442219 | https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
 # http://stackoverflow.com/questions/37361145/deoptimizing-a-program-for-the-pipeline-in-intel-sandybridge-family-cpus/37362225#37362225
