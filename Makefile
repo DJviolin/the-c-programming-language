@@ -1,4 +1,4 @@
-# cd c:/www/clang/the-c-programming-language && make clean build assembly cpp
+# cd c:/www/clang/the-c-programming-language && make -t clean build assembly cpp
 # cd /c/www/clang/the-c-programming-language && time ./bin/1-1-hello && time ./bin/hello
 # cd /c/www/clang/the-c-programming-language && time ./bin/1-3-for-statement-exercise && time ./bin/1-3-for-statement-exercise-cpp
 
@@ -21,7 +21,10 @@ BIN := $(patsubst src/%.c,bin/%,$(SRC))
 BIN_CPP := $(patsubst src/%.cpp,bin/%,$(SRC_CPP))
 ASS := $(patsubst src/%.c,ass/%,$(SRC))
 
+all: clean build assembly cpp
+
 clean:
+	mkdir -p ./bin ./ass
 	rm -f bin/* ass/*
 
 build: $(BIN)
